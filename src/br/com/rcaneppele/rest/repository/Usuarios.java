@@ -3,16 +3,26 @@ package br.com.rcaneppele.rest.repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import br.com.rcaneppele.rest.resource.Usuario;
+import br.com.rcaneppele.rest.security.GeradorDeHash;
 
 public class Usuarios {
 
+	@Inject
+	private GeradorDeHash gerador;
+	
 	private List<Usuario> cadastrados = new ArrayList<>();
 	
 	public Usuarios() {
-		cadastrados.add(new Usuario("fulano@fulano.com", "Fulano"));
-		cadastrados.add(new Usuario("beltrano@beltrano.com", "Beltrano"));
-		cadastrados.add(new Usuario("ciclano@ciclano.com", "Ciclano"));
+		cadastrados.add(criaUsuario("fulano@fulano.com"));
+		cadastrados.add(criaUsuario("beltrano@beltrano.com"));
+		cadastrados.add(criaUsuario("ciclano@ciclano.com"));
+	}
+
+	private Usuario criaUsuario(String login) {
+		return new Usuario(login, gerador.geraHash(login));
 	}
 	
 	public boolean isCadastrado(String login) {
