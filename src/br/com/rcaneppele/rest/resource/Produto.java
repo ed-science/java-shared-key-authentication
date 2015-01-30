@@ -1,4 +1,4 @@
-package br.com.rcaneppele.rest.model;
+package br.com.rcaneppele.rest.resource;
 
 import java.math.BigDecimal;
 
