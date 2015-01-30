@@ -3,18 +3,18 @@ package br.com.rcaneppele.rest.resource;
 public class Usuario {
 
 	private String login;
-	private String nome;
+	private String hash;
 	
-	public Usuario(String login, String nome) {
+	public Usuario(String login, String hash) {
 		this.login = login;
-		this.nome = nome;
+		this.hash = hash;
 	}
 
 	public String getLogin() {
 		return login;
 	}
-	public String getNome() {
-		return nome;
+	public String getHash() {
+		return hash;
 	}
 	
 }
