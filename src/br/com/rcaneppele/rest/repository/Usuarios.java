@@ -16,13 +16,18 @@ public class Usuarios {
 	}
 	
 	public boolean isCadastrado(String login) {
+		Usuario cadastrado = comLogin(login);
+		return cadastrado != null;
+	}
+
+	public Usuario comLogin(String login) {
 		for (Usuario cadastrado : cadastrados) {
 			if (cadastrado.getLogin().equals(login)) {
-				return true;
+				return cadastrado;
 			}
 		}
 		
-		return false;
+		return null;
 	}
 	
 }
