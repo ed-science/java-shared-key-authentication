@@ -4,17 +4,17 @@ import java.math.BigDecimal;
 
 public class Produto {
 
-	private String codigo;
+	private Long codigo;
 	private String nome;
 	private BigDecimal preco;
 	
-	public Produto(String codigo, String nome, BigDecimal preco) {
+	public Produto(Long codigo, String nome, BigDecimal preco) {
 		this.codigo = codigo;
 		this.nome = nome;
 		this.preco = preco;
 	}
 	
-	public String getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
 	public String getNome() {
