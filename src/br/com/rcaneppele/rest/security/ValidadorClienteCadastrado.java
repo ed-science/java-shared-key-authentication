@@ -8,8 +8,12 @@ import br.com.rcaneppele.rest.resource.Usuario;
 
 public class ValidadorClienteCadastrado {
 
+	private final Usuarios usuarios;
+	
 	@Inject
-	private Usuarios usuarios;
+	public ValidadorClienteCadastrado(Usuarios usuarios) {
+		this.usuarios = usuarios;
+	}
 	
 	public boolean isValida(HttpServletRequest request) {
 		String login = request.getHeader("login");
