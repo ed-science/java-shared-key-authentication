@@ -3,19 +3,21 @@ package br.com.rcaneppele.rest.repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import br.com.rcaneppele.rest.resource.Usuario;
-import br.com.rcaneppele.rest.security.GeradorDeHash;
+import br.com.rcaneppele.rest.security.GeradorDeHashDeCliente;
 
 public class Usuarios {
 
 	@Inject
-	private GeradorDeHash gerador;
+	private GeradorDeHashDeCliente gerador;
 	
 	private List<Usuario> cadastrados = new ArrayList<>();
 	
-	public Usuarios() {
+	@PostConstruct
+	private void init() {
 		cadastrados.add(criaUsuario("fulano@fulano.com"));
 		cadastrados.add(criaUsuario("beltrano@beltrano.com"));
 		cadastrados.add(criaUsuario("ciclano@ciclano.com"));
